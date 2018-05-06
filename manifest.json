@@ -1,0 +1,50 @@
+{
+
+  "manifest_version": 2,
+  "name": "Summarizer",
+  "version": "1.0",
+
+  "description": "",
+  "icons": {
+    "16": "icons/sum18.png",
+    "24": "icons/sum24.svg",
+    "48": "icons/sum48.svg"
+  },
+
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage",
+    "notifications",
+    "contextMenus",
+    "http://*/*", 
+    "https://*/*",
+    "tts"
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/sum48.svg",
+    "default_title": "Summarizer",
+    "default_popup": "popup.html"
+  },
+  "background": {
+        "default_icon": "icon.png",
+        "scripts": [
+            "js/lodash.js",
+            "js/tokenizer.js",
+            "js/jquery-3.2.1.slim.min.js",
+            "js/eventPage.js",
+            "js/js-summarize.js"
+        ],
+        "persistent": true
+    },
+  "options_page": "options.html",
+    "content_scripts": [
+        {
+          "matches": [
+            "<all_urls>"
+        ],
+          "js": ["contentScript.js"]
+        }
+      ]
+}
